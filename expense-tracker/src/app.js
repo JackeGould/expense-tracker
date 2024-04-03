@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
@@ -8,6 +9,22 @@ import usersRouter from './routers/users';
 
 // app
 const app = express();
+
+// Configure session middleware
+app.use(session({
+  secret: 'your-secret-key', // Add a secret key for session encryption
+  cookie: { secure: false }, // Set cookie options as needed
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize, // Pass Sequelize instance to the store
+  })
+}));
+
+// Other middleware
+
+
+
 
 // view engine setup
 app.set('views', path.join(dirname(import.meta), 'views'));
