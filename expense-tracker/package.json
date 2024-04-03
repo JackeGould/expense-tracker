@@ -13,11 +13,13 @@
     "dirname-filename-esm": "^1.1.1",
     "dotenv": "^16.3.1",
     "ejs": "~2.6.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.5",
     "express": "~4.16.1",
-    "hbs": "~4.0.4",
+    "express-handlebars": "^3.1.0",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
+    "morgan": "~1.9.1"
+
   },
   "devDependencies": {
     "gen-express-app": "^0.2.5",
