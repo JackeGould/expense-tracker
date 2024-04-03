@@ -1,3 +1,5 @@
+// Link to home routes
+
 import usersModel from "../models/users";
 
 const userController = {
