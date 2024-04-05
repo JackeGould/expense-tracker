@@ -3,6 +3,8 @@
 
 // What is the difference between a route and a restful api endpoint?
 
+// import express from 'express';
+
 const router = require('express').Router();
 const { User } = require('../../models');
 
@@ -76,3 +78,8 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
+
+// Use post for creating a new expense, include amount, description category
+router.post('/expenses/add', (req, res) => {
+    
+    )
