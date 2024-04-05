@@ -4,6 +4,9 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import { dirname } from "dirname-filename-esm"
+import exphbs from 'express-handlebars';
+const hbs = exphbs.create({  });
+// import { SequelizeStore } from 'connect-session-sequelize';
 
 import usersRouter from './routers/users';
 
@@ -16,9 +19,9 @@ app.use(session({
   cookie: { secure: false }, // Set cookie options as needed
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize, // Pass Sequelize instance to the store
-  })
+  // store: new SequelizeStore({
+  //   db: sequelize, // Pass Sequelize instance to the store
+  // })
 }));
 
 // Other middleware
@@ -28,7 +31,8 @@ app.use(session({
 
 // view engine setup
 app.set('views', path.join(dirname(import.meta), 'views'));
-app.set('view engine', 'hbs');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // plugins
 app.use(logger(process.env.NODE_ENV === "production" ? "common" : "dev"));
