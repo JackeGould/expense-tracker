@@ -1,6 +1,6 @@
 // Link to home routes
 
-import usersModel from "../models/users";
+import * as usersModel from "../models/users.js";
 
 const userController = {
   getUsers: (req, res, next) => {

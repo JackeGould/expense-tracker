@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "scripts": {
     "dev": "gen-express-app dev .express/www.js",
     "start": "gen-express-app start .express/www.js"
@@ -23,7 +26,7 @@
 
   },
   "devDependencies": {
-    "gen-express-app": "^0.2.5",
+    "gen-express-app": "0.2.8",
     "nodemon": "^3.0.1"
   }
 }

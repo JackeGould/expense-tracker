@@ -1,3 +1,3 @@
-import "./dotenv"
-import "./server"
-import "./welcome"
+import "./dotenv.js"
+import "./server.js"
+import "./welcome.js"

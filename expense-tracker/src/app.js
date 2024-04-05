@@ -8,7 +8,7 @@ import exphbs from 'express-handlebars';
 const hbs = exphbs.create({  });
 // import { SequelizeStore } from 'connect-session-sequelize';
 
-import usersRouter from './routers/users';
+import usersRouter from './routers/users.js';
 
 // app
 const app = express();
