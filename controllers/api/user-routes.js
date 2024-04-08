@@ -93,6 +93,4 @@ router.post('/expenses/add', (req, res) => {
   .json({ message: 'Expense created successfully', data: { amount, description, category } });
 });
 
-router.post()
-
 module.exports = router;
