@@ -10,6 +10,8 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+const apiRoutes = require("./controllers/api")
+
 
 // Configure session middleware
 app.use(session({
@@ -33,7 +35,7 @@ app.use(express.json()); // receiving json body
 app.use(express.urlencoded({ extended: true })); // allows server to understand/ parse the body
 app.use(express.static(path.join(__dirname, 'public'))); // allows server to serve everything in the public folder
 
-
+app.use("/api", apiRoutes)
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
