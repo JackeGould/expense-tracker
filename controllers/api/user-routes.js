@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Login
+// Login: If a POST request is made to /api/users/login, the function checks to see if the user information matches the information in the database and logs the user in. If correct, the user ID and logged-in state are saved to the session within the request object.
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -79,9 +79,18 @@ router.post('/logout', (req, res) => {
   }
 });
 
-module.exports = router;
 
-// Use post for creating a new expense, include amount, description category
+// Use post for creating a new expense, include amount, description, category
+// Define route handler for creating a new expense
 router.post('/expenses/add', (req, res) => {
-    
-    )
+  const { amount, description, category } = req.body;
+  // Perform validation (e.g., check if required fields are present)
+  if (!amount || !description || !category) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+  // Return a success response
+  res.status(201)
+  .json({ message: 'Expense created successfully', data: { amount, description, category } });
+});
+
+module.exports = router;
