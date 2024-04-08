@@ -1,0 +1,20 @@
+{{!-- HTML set up using handlebars, this will be the MAIN PAGE --}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+
+{{!-- body will need to be adjusted, but this is a start --}}
+
+  <body>
+    <div class="flex-column justify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+        {{!-- <h1>&#127881;  &#127881;</h1> --}}
+      </header>
+      <main class="container container-fluid mt-5">{{{ body }}}</main>
+    </div>
+  </body>
+</html>
