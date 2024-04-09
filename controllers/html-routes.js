@@ -1,4 +1,7 @@
 const router = require("express").Router(); // returns factory function (.Router) static method
+const { Expense} = require("../models")
+
+
 router.get("/", (req, res) => {
     return res.render("homepage")
 })
@@ -13,9 +16,27 @@ router.get("/profile", (req, res, next) => { // custom middleware!!
     } // request stops if it doesn't go to the next -- still sends response
     res.redirect("/login") // redirects to login >> authentication
 }, (req, res) => {
-    return res.render("profile", {
-        loggedIn: true
+
+    Expense.findAll({
+        where: {
+            user_id: req.session.user_id // matches req session in user-routes
+        }
     })
+        .then(results => {
+            console.log(results);
+            // res.json(results);
+            // serialize
+            const expenses = results.map(result => result.get({}))
+
+            return res.render("profile", {
+                loggedIn: true,
+                expenses: expenses
+            })
+
+        });
+
+
+
 })
 
 module.exports = router;
