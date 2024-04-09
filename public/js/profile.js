@@ -2,15 +2,18 @@ const addExpenseForm = async (event) => {
     event.preventDefault();
 
     //collect values from the expense form
-    const expenseName = document.querySelector('#expense-name').value;
+    // const expenseName = document.querySelector('#expense-name').value;
     const expenseAmount = document.querySelector('#expense-amount').value;
-    const expenseCaterogy = document.querySelector('#expense-category').value;
+    // const expenseCaterogy = document.querySelector('#expense-category').value;
     const expenseDescription = document.querySelector('#expense-description').value;
 
-    if (expenseName && expenseAmount && expenseCaterogy && expenseDescription) {
-        const response = await fetch(`/expenses/add`, {
+    if (expenseAmount &&  expenseDescription) {
+        const response = await fetch(`/api/expenses`, {
             method: 'POST',
-            body: JSON.stringify({ expenseAmount, expenseAmount, expenseCaterogy, expenseDescription }),
+            body: JSON.stringify({
+              amount: expenseAmount,
+              description: expenseDescription
+             }),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -44,6 +47,6 @@ const delButtonHandler = async (event) => {
     .querySelector('#new-expense-form')
     .addEventListener('submit', addExpenseForm);
 
-    document
-    .querySelector('#expense-delete')
-    .addEventListener('click', delButtonHandler);
+    // document
+    // .querySelector('#expense-delete')
+    // .addEventListener('click', delButtonHandler);
