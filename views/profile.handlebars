@@ -3,20 +3,11 @@
     <div class="col-md-4 border border-3 border-success m-4 mx-auto rounded">
       <h2 class="text-decoration-underline text-center">Add Expense</h2>
       <form id="new-expense-form">
-        {{!-- <div class="mb-3 ">
+        <div class="mb-3 ">
           <label for="expense-name" class="form-label">Expense Name</label>
           <input type="text" class="form-control" id="expense-name">
 
-
         </div>
-
-        </div> --}}
-        {{!-- <div class="mb-3 ">
-          <label for="expense-category" class="form-label">Expense category</label>
-          <input type="text" class="form-control" id="expense-category">
-
-        </div> --}}
-
         <div class="mb-3">
           <label for="expense-amount" class="form-label">Amount</label>
           <input type="number" class="form-control" id="expense-amount">
@@ -53,14 +44,8 @@
   </div>
 
 
-
   <div class="container-fluid mt-4">
     <h2 class="text-decoration-underline text-center">OVERALL</h2>
-
-  {{#if expenses.length}}
-  <div id="expenses-list" class="container-fluid">
-    <h3>All Expenses</h3>
-
     <div class="row">
       <!-- Expense Cards -->
       {{#if expense.length}}
@@ -68,14 +53,8 @@
       <div class="col-sm-6 mt-3">
         <div class="card d-flex align-items-center justify-content-center bg-danger p-2" style="--bs-bg-opacity: .10;">
           <div class="card-body text-center">
-
             <h5 id="expense-title" class="card-title">{{expense.name}}</h5>
             <p id="expense-desc" class="card-text">{{expense.description}}</p>
-
-            {{!-- <h5 id="expense-title" class="card-title">{{expense.name}}</h5> --}}
-            {{!-- <h6 id="expense-cat" class="card-subtitle mb-2 text-body-secondary">{{expense.category}}</h6> --}}
-            <p id="exepense-desc" class="card-text">{{expense.description}}</p>
-
             <p id="expense-amount" class="card-text">$ {{expense.amount}}</p>
             <button id="expense-delete" data-id="{{expense.id}}" class="btn btn-danger">Delete</button>
             <button id="expense-edit" data-id="{{expense.id}}" class="btn btn-success">Edit</button>
@@ -103,13 +82,10 @@
     </div>
   </div>
 
-  <div class="container-fluid">
-    <canvas id="myChart"></canvas>
-  </div>
 
+  <div class="container-fluid">
+
+  </div>
 </div>
 
-
 <script src="/js/profile.js"></script>
-<script src="./js/expenses.js"></script>
-
