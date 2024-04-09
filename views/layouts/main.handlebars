@@ -22,12 +22,13 @@
                 <ul class="navbar-nav">
                     {{#if loggedIn}}
                     <li class="nav-item">
-                        <a id="logout" class="btn btn-outline-success" aria-current="page" href="/login">Logout</a>
+                        <a id="logout" class="btn btn-outline-success" aria-current="page" href="/logout">Logout</a>
                     </li>
                     {{else}}
                     <li class="nav-item">
                         <a id="login" class="btn btn-outline-success" aria-current="page" href="/login">Login</a>
-                    </li>
+                    </li> 
+                    {{/if}}
             </div>
     
         </div>
