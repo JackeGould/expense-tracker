@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const { Expense } = require("../../models")
+const {Op} = require("sequelize");
 
 // Get ALL
+// GET        /api/expenses/
 router.get("/", (req, res) => {
     Expense.findAll({
         where: {
@@ -39,10 +41,17 @@ router.get("/:month/:year", (req, res) => {
 })
 
 // Create one
+//  POST      /api/expenses/
+
 router.post("/", (req, res) => {
     Expense.create({
-        amount: req.body.amount,
-        description: req.body.description,
+        // amount: req.body.amount,
+        // description: req.body.description,
+        // ...{ email, password }
+        // email,
+        // password
+        ...req.body,
+        user_id: req.session.user_id
     })
     .then(results => {
         console.log(results);
