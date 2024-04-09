@@ -7,7 +7,7 @@ const expenseRoutes = require("./expense-routes");
 
 
 router.use("/users", userRoutes)
-// router.use("")  - for income
+router.use("/income", incomeRoutes)
 router.use("/expenses", expenseRoutes)
 
 
