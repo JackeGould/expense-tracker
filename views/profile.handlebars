@@ -8,11 +8,6 @@
           <input type="text" class="form-control" id="expense-name">
 
         </div>
-        <div class="mb-3 ">
-          <label for="expense-category" class="form-label">Expense category</label>
-          <input type="text" class="form-control" id="expense-category">
-
-        </div>
         <div class="mb-3">
           <label for="expense-amount" class="form-label">Amount</label>
           <input type="number" class="form-control" id="expense-amount">
@@ -26,31 +21,71 @@
       </form>
     </div>
 
-    <div class="col-md-6 mx-auto d-flex flex-column justify-content-center align-items-start">
-      <h3>Total:</h3>
+    <div class="col-md-4 border border-3 border-success m-4 mx-auto rounded">
+      <h2 class="text-decoration-underline text-center">Add Income</h2>
+      <form id="new-Income-form">
+        <div class="mb-3 ">
+          <label for="Income-name" class="form-label">Income Name</label>
+          <input type="text" class="form-control" id="Income-name">
+
+        </div>
+        <div class="mb-3">
+          <label for="Income-amount" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="Income-amount">
+        </div>
+        <div class="mb-3 ">
+          <label for="Income-description" class="form-label">Income description</label>
+          <input type="text" class="form-control" id="Income-description">
+
+        </div>
+        <button type="submit" class="btn btn-success d-grid gap-2 col-6 mx-auto mb-3">Add</button>
+      </form>
     </div>
   </div>
-  {{#if expense.length}}
-  <div id="expenses-list" class="container-fluid">
-    <h3>All Expenses</h3>
+
+
+  <div class="container-fluid mt-4">
+    <h2 class="text-decoration-underline text-center">OVERALL</h2>
     <div class="row">
+      <!-- Expense Cards -->
+      {{#if expense.length}}
       {{#each expenses as |expense|}}
-      {{!-- content --}}
-      <div class="col-sm-3 mt-3">
-        <div class="card d-flex align-items-center justify-content-center">
+      <div class="col-sm-6 mt-3">
+        <div class="card d-flex align-items-center justify-content-center bg-danger p-2" style="--bs-bg-opacity: .10;">
           <div class="card-body text-center">
             <h5 id="expense-title" class="card-title">{{expense.name}}</h5>
-            <h6 id="expense-cat" class="card-subtitle mb-2 text-body-secondary">{{expense.category}}</h6>
-            <p id="exepense-desc" class="card-text">{{expense.description}}</p>
+            <p id="expense-desc" class="card-text">{{expense.description}}</p>
             <p id="expense-amount" class="card-text">$ {{expense.amount}}</p>
-            <button id="expense-delete" data-id="{{expense.id}}" class="btn btn-danger ">Delete</button>
+            <button id="expense-delete" data-id="{{expense.id}}" class="btn btn-danger">Delete</button>
+            <button id="expense-edit" data-id="{{expense.id}}" class="btn btn-success">Edit</button>
           </div>
         </div>
       </div>
       {{/each}}
+      {{/if}}
+      <!-- income cards -->
+      {{#if income.length}}
+      {{#each incomes as |income|}}
+      <div class="col-sm-6 mt-3">
+        <div class="card d-flex align-items-center justify-content-center bg-success p-2" style="--bs-bg-opacity: .10;">
+          <div class="card-body text-center">
+            <h5 id="income-title" class="card-title">{{income.name}}</h5>
+            <p id="income-desc" class="card-text">{{income.description}}</p>
+            <p id="income-amount" class="card-text">$ {{income.amount}}</p>
+            <button id="income-delete" data-id="{{income.id}}" class="btn btn-danger">Delete</button>
+            <button id="income-edit" data-id="{{income.id}}" class="btn btn-success">Edit</button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+      {{/if}}
     </div>
   </div>
-  {{/if}}
+
+  <div class="container-fluid">
+    <canvas id="myChart"></canvas>
+  </div>
+
 </div>
 
-<script src="../public/js/profile.js"></script>
+<script src="/js/profile.js"></script>
