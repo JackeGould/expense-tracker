@@ -1,3 +1,5 @@
 document
     .querySelector('#start-btn')
-    .addEventListener('click', document.location.replace('/login'));
+    .addEventListener('click', () => {
+        document.location.replace('/login')
+    });
