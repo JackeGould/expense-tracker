@@ -20,17 +20,20 @@ router.get("/profile", (req, res, next) => { // custom middleware!!
     Expense.findAll({
         where: {
             user_id: req.session.user_id // matches req session in user-routes
-        }
+        },
+        raw:true,
+        nest:true
+        //defaulted to return plain, bold json instead of getting an array of instances / map over them
     })
         .then(results => {
             console.log(results);
             // res.json(results);
             // serialize
-            const expenses = results.map(result => result.get({}))
+            // const expenses = results.map(result => result.get({}))
 
             return res.render("profile", {
                 loggedIn: true,
-                expenses: expenses
+                expenses: results
             })
 
         });

@@ -1,39 +1,26 @@
 //  expense
 const addExpenseForm = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    //collect values from the expense form
-    // const expenseName = document.querySelector('#expense-name').value;
-    const expenseAmount = document.querySelector('#expense-amount').value;
+  //collect values from the expense form
+  const expenseName = document.querySelector('#expense-name').value;
+  const amount = document.querySelector('#expense-amount').value;
+  const description = document.querySelector('#expense-description').value;
 
-    const expenseDescription = document.querySelector('#expense-description').value;
-
-    if (expenseName && expenseAmount && expenseDescription) {
-        const response = await fetch(`/expenses/add`, {
-            method: 'POST',
-            body: JSON.stringify({ expenseAmount, expenseAmount, expenseDescription }),
-
-    // const expenseCaterogy = document.querySelector('#expense-category').value;
-    const expenseDescription = document.querySelector('#expense-description').value;
-
-    if (expenseAmount &&  expenseDescription) {
-        const response = await fetch(`/api/expenses`, {
-            method: 'POST',
-            body: JSON.stringify({
-              amount: expenseAmount,
-              description: expenseDescription
-             }),
-
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        if (response.ok) {
-            document.location.replace('/profile');
-          } else {
-            alert('Failed to add expense');
-          }
-    }
+  if (amount && description) {
+      const response = await fetch(`/api/expenses`, {
+          method: 'POST',
+          body: JSON.stringify({ amount, description }),
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      });
+      if (response.ok) {
+          document.location.replace('/profile');
+        } else {
+          alert('Failed to add expense');
+        }
+  }
 }
 
 // delete btn
@@ -49,7 +36,7 @@ const delButtonExpense = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete exoense');
+      alert('Failed to delete expense');
     }
   }
 };
@@ -141,30 +128,27 @@ const editButtonIncome = async (event) => {
     .querySelector('#new-income-form')
     .addEventListener('submit', addIncomeForm);
 
+    // To do: USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#income-delete')
-    .addEventListener('click', delButtonIncome);
+    ?.addEventListener('click', delButtonIncome); // ? is optional chaining (attribute) selector: if falsey, "?", not continue
 
+    // TO do : USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#income-edit')
-    .addEventListener('click', editButtonIncome);
+    ?.addEventListener('click', editButtonIncome);
 
     // expense form
-
     document
     .querySelector('#new-expense-form')
     .addEventListener('submit', addExpenseForm);
 
-
+  // To do: USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#expense-delete')
-    .addEventListener('click', delButtonExpense);
+    ?.addEventListener('click', delButtonExpense);
 
+    // TO do : USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#expense-edit')
-    .addEventListener('click', editButtonExpense);
-
-    // document
-    // .querySelector('#expense-delete')
-    // .addEventListener('click', delButtonHandler);
-
+    ?.addEventListener('click', editButtonExpense);
