@@ -4,13 +4,13 @@ const addExpenseForm = async (event) => {
 
   //collect values from the expense form
   const expenseName = document.querySelector('#expense-name').value;
-  const expenseAmount = document.querySelector('#expense-amount').value;
-  const expenseDescription = document.querySelector('#expense-description').value;
+  const amount = document.querySelector('#expense-amount').value;
+  const description = document.querySelector('#expense-description').value;
 
-  if (expenseName && expenseAmount && expenseDescription) {
-      const response = await fetch(`/expenses/add`, {
+  if (amount && description) {
+      const response = await fetch(`/api/expenses`, {
           method: 'POST',
-          body: JSON.stringify({ expenseAmount, expenseAmount, expenseDescription }),
+          body: JSON.stringify({ amount, description }),
           headers: {
               'Content-Type': 'application/json',
           },
@@ -128,25 +128,27 @@ const editButtonIncome = async (event) => {
     .querySelector('#new-income-form')
     .addEventListener('submit', addIncomeForm);
 
+    // To do: USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#income-delete')
-    .addEventListener('click', delButtonIncome);
+    ?.addEventListener('click', delButtonIncome); // ? is optional chaining (attribute) selector: if falsey, "?", not continue
 
+    // TO do : USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#income-edit')
-    .addEventListener('click', editButtonIncome);
+    ?.addEventListener('click', editButtonIncome);
 
     // expense form
-
     document
     .querySelector('#new-expense-form')
     .addEventListener('submit', addExpenseForm);
 
-
+  // To do: USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#expense-delete')
-    .addEventListener('click', delButtonExpense);
+    ?.addEventListener('click', delButtonExpense);
 
+    // TO do : USE EVENT DELEGATION FOR DELETE BUTTONS
     document
     .querySelector('#expense-edit')
-    .addEventListener('click', editButtonExpense);
+    ?.addEventListener('click', editButtonExpense);

@@ -23,7 +23,7 @@
 
     <div class="col-md-4 border border-3 border-success m-4 mx-auto rounded">
       <h2 class="text-decoration-underline text-center">Add Income</h2>
-      <form id="new-Income-form">
+      <form id="new-income-form">
         <div class="mb-3 ">
           <label for="Income-name" class="form-label">Income Name</label>
           <input type="text" class="form-control" id="Income-name">
@@ -48,7 +48,6 @@
     <h2 class="text-decoration-underline text-center">OVERALL</h2>
     <div class="row">
       <!-- Expense Cards -->
-      {{#if expense.length}}
       {{#each expenses as |expense|}}
       <div class="col-sm-6 mt-3">
         <div class="card d-flex align-items-center justify-content-center bg-danger p-2" style="--bs-bg-opacity: .10;">
@@ -62,9 +61,7 @@
         </div>
       </div>
       {{/each}}
-      {{/if}}
       <!-- income cards -->
-      {{#if income.length}}
       {{#each incomes as |income|}}
       <div class="col-sm-6 mt-3">
         <div class="card d-flex align-items-center justify-content-center bg-success p-2" style="--bs-bg-opacity: .10;">
@@ -78,7 +75,6 @@
         </div>
       </div>
       {{/each}}
-      {{/if}}
     </div>
   </div>
 
