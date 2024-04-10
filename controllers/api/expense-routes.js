@@ -17,18 +17,19 @@ router.get("/", (req, res) => {
 })
 
 // Get by month-year
-//  /api/expenses/04/2024
-router.get("/:month/:year", (req, res) => {
+//  /api/expenses/04-2024
+router.get("/:month_year", (req, res) => {
     // req.params.month ---> 4
     // req.params.year ----> 2024
 
     Expense.findAll({
         where: {
             user_id: req.session.user_id,
-            date_created: {
-                [Op.gte]: new Date(req.params.year, req.params.month - 1, 1),
-                [Op.lte]: new Date(req.params.year, req.params.month, 0)
-            }
+            month_year: req.params.month_year
+            // date_created: {
+            //     [Op.gte]: new Date(req.params.year, req.params.month - 1, 1),
+            //     [Op.lte]: new Date(req.params.year, req.params.month, 0)
+            // }
             // new Date("2024", "03", 1) - starting
             // new Date("2024", "04", 0) - ending
         }
