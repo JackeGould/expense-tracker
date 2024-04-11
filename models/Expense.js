@@ -15,6 +15,17 @@ Expense.init(
             type: DataTypes.FLOAT,
             allowNull: false,
         },
+        month_year: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            // validate: function(input) {
+                // should follow this format
+                // month-year
+                // "04-2024"
+            // }
+            // defaultValue: DataTypes.
+
+        },
         description: {
             type: DataTypes.STRING,
             allowNull: false,

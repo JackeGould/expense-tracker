@@ -15,13 +15,16 @@ Income.init(
             type: DataTypes.STRING,
             allowNull: false,
             // validate: function(input) {
-                // "04/2024"
-                // "Apr-24"
-                // const date = input.split("/")
-                // if(date[1] )
+                // should follow this format
+                // month-year
+                // "04-2024"
             // }
             // defaultValue: DataTypes.
 
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         amount: {
             type: DataTypes.FLOAT,
